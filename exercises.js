@@ -8,11 +8,9 @@
  * ***Here's a Freebie to get you started!!!***
  */
 var doubleArray = function(arr) {
-  var result = [];
-  for (var i = 0; i < arr.length; i++) {
-    result.push(arr[i] * 2) 
-  }
-  return result
+  return arr.map(function(x) {
+    return x * 2;
+  });
 }
 
 /* #sumArrays
@@ -23,7 +21,15 @@ var doubleArray = function(arr) {
  * @param {Array}
  * @return {Bool}
  */
-var sumArrays;
+var sumArrays = function(arr1, arr2) {
+  var total1 = arr1.reduce(function(x,y) {
+    return x + y;
+  });
+  var total2 = arr2.reduce(function(x,y) {
+    return x + y;
+  });
+  return total1 + total2;
+}
 
 /* #stringCount
  *
@@ -32,7 +38,11 @@ var sumArrays;
  * @param {String}
  * @return {Number}
  */
-var stringCount;
+var stringCount = function(str) {
+  str = str.split('');
+  return str.length;
+}
+
 
 /* #arrayLength
  *
