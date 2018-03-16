@@ -22,10 +22,10 @@ var doubleArray = function(arr) {
  * @return {Bool}
  */
 var sumArrays = function(arr1, arr2) {
-  var total1 = arr1.reduce(function(x,y) {
+  var total1 = arr1.reduce(function(x, y) {
     return x + y;
   });
-  var total2 = arr2.reduce(function(x,y) {
+  var total2 = arr2.reduce(function(x, y) {
     return x + y;
   });
   return total1 + total2;
@@ -39,7 +39,6 @@ var sumArrays = function(arr1, arr2) {
  * @return {Number}
  */
 var stringCount = function(str) {
-  str = str.split('');
   return str.length;
 }
 
@@ -51,7 +50,9 @@ var stringCount = function(str) {
  * @param {String}
  * @return {Number}
  */
-var arrayLength;
+var arrayLength = function(arr) {
+  return arr.length;
+}
 
 /* #countAll
  *
@@ -60,7 +61,11 @@ var arrayLength;
  * @param {Array}
  * @return {Number}
  */
-var countAll;
+var countAll = function(arr) {
+  return arr.reduce(function (total, eachNewNumber) {
+    return total + eachNewNumber;
+  }, 0);
+};
 
 /* #countStrings
  *
@@ -69,7 +74,11 @@ var countAll;
  * @param {Array}
  * @return {Array}
  */
-var countStrings;
+var countStrings = function(arr) {
+  return arr.map(function(str) {
+    return str.length
+  });
+}
 
 /* #countAllStrings
  *
@@ -78,7 +87,11 @@ var countStrings;
  * @param {String}
  * @return {Number}
  */
-var countAllStrings;
+var countAllStrings = function(arr) {
+  return arr.reduce(function(sum, str) {
+    return sum + str.length
+  }, 0);
+}
 
 /* #convertToArray
  *
@@ -87,7 +100,13 @@ var countAllStrings;
  * @param {Object}
  * @return {Array}
  */
-var convertToArray;
+var convertToArray = function(obj) {
+  let arr = [];
+  for (key in obj) {
+    arr.push(obj[key]);
+  }
+  return arr;
+}
 
 /* #objectSize
  *
@@ -391,14 +410,14 @@ var tupleConvertToObject;
 
 
 module.exports = {
-  doubleArray: null,
-  sumArrays: null, 
-  stringCount: null,
-  arrayLength: null,
-  countAll: null,
-  countStrings: null,
-  countAllStrings: null,
-  convertToArray: null,
+  doubleArray: doubleArray,
+  sumArrays: sumArrays, 
+  stringCount: stringCount,
+  arrayLength: arrayLength,
+  countAll: countAll,
+  countStrings: countStrings,
+  countAllStrings: countAllStrings,
+  convertToArray: convertToArray,
   objectSize: null,
   createZeroFilledArray: null,
   poppedArray: null,
