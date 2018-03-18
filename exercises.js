@@ -310,7 +310,7 @@ var getObjectValues = function(obj) {
  * @return {Object}
  */
 var makeObject = function(key, value){
-  let obj = {}
+  let obj = {};
     obj[key] = value;
   return obj;
 };
@@ -324,7 +324,7 @@ var makeObject = function(key, value){
  * @return {Bool}
  */
 var makeObjectReverse = function(value, key) {
-  let obj = {}
+  let obj = {};
     obj[key] = value;
   return obj;
 };
@@ -427,7 +427,7 @@ var objectToArray = function(obj) {
 var arrayToObject = function(arr) {
   let obj = {};
   arr.forEach(function(val) {
-    obj[val] = false;
+    return obj[val] = false;
   });
   return obj;
 };
@@ -441,17 +441,36 @@ var arrayToObject = function(arr) {
  * @param {Array}
  * @return {Object}
  */
-var arraysToObject;
+var arraysToObject = function(arr1, arr2) {
+  let obj = {};
+  if (arr1.length === arr2.length) {
+    for (var i = 0; i < arr1.length; i++) {
+      obj[arr1[i]] = arr2[i];
+    }
+  }
+  return obj;
+};
 
 /* #objectsToTuples
  *
- * takes in two objects and returns an array of tuples of the key value pairs of all objects in both arrays.
+ * takes in two objects and returns an array of tuples of key value pairs from both objects.
  *
  * @param {Object}
  * @param {Object}
  * @return {Array}
+ * 
+ * expect(func.objectsToTuples({'a':1,'b':2},{'c':3,'d':4})).to.deep.equal([['a',1],['b',2],['c',3],['d',4]]);
  */
-var objectsToTuples;
+var objectsToTuples = function(obj1, obj2) {
+  let arrayOfTuples = [];
+  for (var key in obj1) {
+    arrayOfTuples.push([key, obj1[key]])
+  }
+  for (var key in obj2) {
+    arrayOfTuples.push([key, obj2[key]])
+  }
+  return arrayOfTuples;
+};
 
 /* #mapArrayValues
  *
@@ -460,7 +479,14 @@ var objectsToTuples;
  * @param {Array}
  * @return {Object}
  */
-var mapArrayValues;
+var mapArrayValues = function(arr) {
+  let obj = {};
+  arr.forEach(function(str) {
+    return obj[str] = true;
+  });
+  return obj;
+
+};
 
 /* #mapStringCounts
  *
