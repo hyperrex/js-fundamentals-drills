@@ -497,7 +497,17 @@ var mapArrayValues = function(arr) {
  * @param {Array}
  * @return {Object}
  */
-var mapStringCounts;
+var mapStringCounts = function(arr) {
+  let obj = {};
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i].length >= 5) {
+      obj[arr[i]] = true;
+    } else {
+      obj[arr[i]] = false;
+    }
+  }
+  return obj;
+};
 
 /* #arrayToObjectNums
  *
@@ -507,7 +517,13 @@ var mapStringCounts;
  * @param {Array}
  * @return {Object}
  */
-var arrayToObjectNums;
+var arrayToObjectNums = function(arr) {
+  let obj = {};
+  arr.forEach(function(num) {
+    return obj[num] = true;
+  });
+  return obj;
+};
 
 /* #stringToKeys
  *
@@ -516,7 +532,13 @@ var arrayToObjectNums;
  * @param {String}
  * @return {Object}
  */
-var stringToKeys;
+var stringToKeys = function(str) {
+  let obj = {};
+  str.split('').forEach(function(letter) {
+    return obj[letter] = true;
+  });
+  return obj;
+};
 
 /* #charCountMap
  *
@@ -526,7 +548,13 @@ var stringToKeys;
  * @param {Array}
  * @return {Object}
  */
-var charCountMap;
+var charCountMap = function(arr) {
+  let obj = {};
+  arr.forEach(function(word) {
+    return obj[word] = word.length;
+  });
+  return obj;
+};
 
 /* #frequencyMap
  *
@@ -535,7 +563,17 @@ var charCountMap;
  * @param {String}
  * @return {Bool}
  */
-var frequencyMap;
+var frequencyMap = function(arr) {
+  let obj = {};
+  arr.forEach(function(str) {
+    if (!obj[str]) {
+      obj[str] = 1;
+    } else {
+      obj[str] ++;
+    }
+  });
+  return obj;
+};
 
 /* #tupleConvertToObject
  *
@@ -545,7 +583,13 @@ var frequencyMap;
  * @param {String}
  * @return {Bool}
  */
-var tupleConvertToObject;
+var tupleConvertToObject = function(arr) {
+  let obj = {};
+  arr.forEach(function(tuple) {
+    obj[tuple[0]] = tuple[1];
+  });
+  return obj;
+};
 
 
 module.exports = {
