@@ -411,9 +411,7 @@ let arrayToObject = function(arr) {
 let arraysToObject = function(arr1, arr2) {
   let obj = {};
   if (arr1.length === arr2.length) {
-    for (let i = 0; i < arr1.length; i++) {
-      obj[arr1[i]] = arr2[i];
-    }
+    arr1.forEach((el, i) => obj[el] = arr2[i]);
   }
   return obj;
 };
